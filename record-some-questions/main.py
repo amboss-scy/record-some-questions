@@ -1,4 +1,3 @@
-# Set default mode for content recording to manual
 # Main menu
 while True:
     choice = input(
