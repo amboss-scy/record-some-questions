@@ -1,6 +1,5 @@
 # Local files and folders
-ask-amboss-anything/articles/*
-ask-amboss-anything/database/*
+record-some-questions/questions/*
 
 # User-level environment files
 .env
