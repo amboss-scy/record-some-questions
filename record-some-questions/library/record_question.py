@@ -14,9 +14,12 @@ def record_question():
 
     # Get content and title for file
     question_tuple = get_question_from_bigquery()
-    question_id = question_tuple[0]
-    question = "### QUESTION\n\n" + get_clean_markdown(question_tuple[1]).strip()
-    answers_df = question_tuple[2]
+    try:
+        question_id = question_tuple[0]
+        question = "### QUESTION\n\n" + get_clean_markdown(question_tuple[1]).strip()
+        answers_df = question_tuple[2]
+    except TypeError:
+        return
 
     answers = []
     for i in range(len(answers_df)):

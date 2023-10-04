@@ -25,7 +25,11 @@ def get_question_from_bigquery():
     """
     query_results = query_client.query(query).to_dataframe()
 
-    question = query_results.loc[0, "question"]
+    try:
+        question = query_results.loc[0, "question"]
+    except KeyError:
+        print("Error: No question with this ID in remote database.")
+        return
 
     columns_to_delete = ["question", "answer_id"]
     for column in columns_to_delete:
